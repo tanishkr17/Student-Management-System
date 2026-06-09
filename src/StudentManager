@@ -1,0 +1,32 @@
+import java.util.ArrayList;
+public class StudentManager {
+    private ArrayList<Student> students = new ArrayList<>();
+    public void addStudent(Student student) {
+        students.add(student);
+    }
+    public void displayAllStudents() {
+        for (Student student : students) {
+            student.displayDetails();
+        }
+    }
+    public void searchStudentById(int id) {
+        for (Student student : students) {
+            if (student.getId() == id) {
+                System.out.println("Student Found:");
+                student.displayDetails();
+                return;
+            }
+        }
+        System.out.println("Student not found.");
+    }
+    public void searchStudentByName(String name) {
+        for (Student student : students) {
+            if (student.getName().equalsIgnoreCase(name)) {
+                System.out.println("Student Found:");
+                student.displayDetails();
+                return;
+            }
+        }
+        System.out.println("Student not found.");
+    }
+}
